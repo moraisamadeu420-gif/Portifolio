@@ -254,127 +254,120 @@
       overflow: hidden;
     }
 
-    .hero-ghost {
+    .hero-deco-top {
       position: absolute;
-      top: 48%;
-      left: -2%;
-      transform: translateY(-50%);
+      top: 5%;
+      left: -2vw;
       font-family: 'Fraunces', serif;
-      font-size: clamp(10rem, 24vw, 24rem);
+      font-size: clamp(4.5rem, 12vw, 13rem);
+      font-weight: 900;
+      font-style: italic;
+      color: rgba(232, 255, 0, .07);
+      white-space: nowrap;
+      letter-spacing: 0.08em;
+      transform: scaleX(0.60);
+      transform-origin: left top;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .hero-deco-bottom {
+      position: absolute;
+      bottom: 7%;
+      right: -12vw;
+      font-family: 'Fraunces', serif;
+      font-size: clamp(5rem, 18vw, 18rem);
       font-weight: 900;
       font-style: italic;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, .09);
+      -webkit-text-stroke: 1px rgba(232, 255, 0, .09);
       white-space: nowrap;
+      transform-origin: right top;
       pointer-events: none;
       user-select: none;
-      will-change: transform;
-    }
-
-    .hero-orb {
-      display: none;
-    }
-
-    .hero-orb-ring {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 720px;
-      height: 720px;
-      border-radius: 50%;
-      border: none;
-      background: radial-gradient(circle at center,
-          rgba(255, 252, 190, .28) 0%,
-          rgba(232, 255, 0, .16) 18%,
-          rgba(232, 255, 0, .07) 40%,
-          rgba(232, 255, 0, .02) 60%,
-          transparent 72%);
-      filter: blur(6px);
-      mix-blend-mode: screen;
-      pointer-events: none;
-      z-index: 1;
-      will-change: transform;
-    }
-
-    /* Cópia iluminada do texto — revelada só onde o holofote passa */
-    .hero-ghost-lit {
-      position: absolute;
-      top: 48%;
-      left: -2%;
-      transform: translateY(-50%);
-      font-family: 'Fraunces', serif;
-      font-size: clamp(10rem, 24vw, 24rem);
-      font-weight: 900;
-      font-style: italic;
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(232, 255, 0, .75);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      z-index: 1;
-      clip-path: circle(0px at 0px 0px);
-      will-change: clip-path, transform;
+      z-index: 0;
     }
 
     .hero-inner {
       position: relative;
       z-index: 2;
       isolation: isolate;
+      width: 100%;
     }
+
 
     .hero-eyebrow {
       font-size: .72rem;
       font-weight: 600;
-      letter-spacing: .2em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1.6rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 1rem;
+      gap: .6rem;
+      border: 1px solid rgba(232, 255, 0, .25);
+      border-radius: 999px;
+      padding: .45rem 1.1rem .45rem .8rem;
     }
 
     .hero-eyebrow::before {
       content: '';
-      width: 36px;
-      height: 1px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
       background: var(--accent);
+      flex-shrink: 0;
     }
 
     .hero-title {
       font-family: 'Fraunces', serif;
-      font-size: clamp(5rem, 14vw, 15rem);
+      font-size: clamp(3rem, 10vw, 7rem);
       font-weight: 900;
-      line-height: .86;
+      line-height: .95;
       letter-spacing: -.04em;
       color: var(--text);
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.5rem;
       transform-style: preserve-3d;
       will-change: transform;
       transition: transform .05s linear;
     }
 
     .hero-title .outline {
-      -webkit-text-stroke: 2px var(--text);
-      color: transparent;
+      color: var(--accent);
+      -webkit-text-stroke: 1.5px var(--accent);
+    }
+
+    @supports (-webkit-text-stroke: 1px) {
+      .hero-title .outline {
+        color: transparent;
+      }
     }
 
     .hero-title .hi {
       color: var(--accent);
+      -webkit-text-stroke: 0;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 2rem;
     }
 
     .hero-foot {
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 2rem;
-      flex-wrap: wrap;
     }
 
     .hero-tagline {
       font-size: clamp(.95rem, 1.8vw, 1.15rem);
       color: var(--muted);
-      max-width: 360px;
+      max-width: 40ch;
       line-height: 1.75;
     }
 
@@ -396,6 +389,7 @@
       text-transform: uppercase;
       text-decoration: none;
       border: 1px solid transparent;
+      border-radius: 999px;
       position: relative;
       overflow: hidden;
     }
@@ -445,12 +439,11 @@
     .hero-scroll {
       position: absolute;
       bottom: 2rem;
-      right: 2.5rem;
+      left: 2.5rem;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: .6rem;
-      writing-mode: vertical-rl;
+      gap: .5rem;
       font-size: .62rem;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -458,11 +451,7 @@
     }
 
     .hero-scroll::before {
-      content: '';
-      width: 1px;
-      height: 55px;
-      background: linear-gradient(to bottom, transparent, var(--muted));
-      animation: scrollpulse 2.2s ease-in-out infinite;
+      display: none;
     }
 
     @keyframes scrollpulse {
@@ -1176,11 +1165,12 @@
       filter: blur(10px);
       transform: translateY(16px);
       transition:
-        opacity  .5s var(--ease),
-        filter   .55s var(--ease),
+        opacity .5s var(--ease),
+        filter .55s var(--ease),
         transform .5s var(--ease);
       will-change: opacity, filter, transform;
     }
+
     .char.on {
       opacity: 1;
       filter: blur(0px);
@@ -1210,7 +1200,15 @@
       }
 
       .hero-title {
-        font-size: clamp(4rem, 16vw, 7rem);
+        font-size: clamp(2.2rem, 12vw, 5rem);
+      }
+
+      .hero-deco-top {
+        top: 2%;
+      }
+
+      .hero-deco-bottom {
+        font-size: clamp(3.5rem, 22vw, 8rem);
       }
 
       .about-grid {
@@ -1297,30 +1295,31 @@
 
     <!-- ═══ HERO ═══ -->
     <section id="hero" aria-label="Introduction">
-      <div class="hero-ghost" aria-hidden="true">DESENVOLVEDOR</div>
-      <div class="hero-ghost-lit" aria-hidden="true">DESENVOLVEDOR</div>
-      <div class="hero-orb" aria-hidden="true"></div>
-      <div class="hero-orb-ring" id="spotlight" aria-hidden="true"></div>
+      <div class="hero-deco-top" aria-hidden="true">DESENVOLVEDOR</div>
+      <div class="hero-deco-bottom" aria-hidden="true">BACKEND</div>
 
       <div class="wrap hero-inner">
         <p class="hero-eyebrow" data-a="up">Disponível para oportunidades &nbsp;·&nbsp; 2026</p>
 
         <h1 class="hero-title" id="hero-title" data-a="up" style="transition-delay:.08s">
-          AMADEU<br><span class="outline">MO</span>RAIS<span class="hi">.</span>
+          AMADEU<br><span class="outline">MORAIS</span><span class="hi">.</span>
         </h1>
 
+        <div class="hero-divider" data-a="up" style="transition-delay:.14s" aria-hidden="true"></div>
+
         <div class="hero-foot">
-          <p class="hero-tagline" data-a="up" style="transition-delay:.16s">
+          <p class="hero-tagline" data-a="up" style="transition-delay:.20s">
             Desenvolvedor Backend &amp; Codificador Criativo — transformando lógica em experiências reais.
           </p>
-          <div class="ctas" data-a="up" style="transition-delay:.24s">
+          <div class="ctas" data-a="up" style="transition-delay:.28s">
             <a href="#work" class="btn btn-fill"><span>View Work</span></a>
-            <a href="Curriculo.pdf" download="Amadeu_Morais_Curriculo.pdf" class="btn btn-ghost" aria-label="Download CV"><span>Download CV</span></a>
+            <a href="Curriculo.pdf" download="Amadeu_Morais_Curriculo.pdf" class="btn btn-ghost"
+              aria-label="Download CV"><span>Download CV</span></a>
           </div>
         </div>
       </div>
 
-      <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      <div class="hero-scroll" aria-hidden="true">SCROLL ↓</div>
     </section>
 
     <!-- MARQUEE -->
@@ -1361,9 +1360,12 @@
             </h2>
 
             <p class="about-bio">
-              Sou <strong>Amadeu Morais</strong>, estudante de Análise e Desenvolvimento de Sistemas em Campinas, SP. Em transição para tecnologia com foco em <strong>desenvolvimento backend</strong> — construindo APIs, automatizando processos e aprendendo na prática com projetos reais.
+              Sou <strong>Amadeu Morais</strong>, estudante de Análise e Desenvolvimento de Sistemas em Campinas, SP. Em
+              transição para tecnologia com foco em <strong>desenvolvimento backend</strong> — construindo APIs,
+              automatizando processos e aprendendo na prática com projetos reais.
               <br><br>
-              Apaixonado por código limpo, arquitetura bem pensada e por transformar ideias em sistemas que realmente entregam valor.
+              Apaixonado por código limpo, arquitetura bem pensada e por transformar ideias em sistemas que realmente
+              entregam valor.
             </p>
 
             <div class="skills" data-a="stagger">
@@ -1626,53 +1628,6 @@
       heroTitle.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg)';
     });
 
-    /* ─── HERO GHOST PARALLAX + SPOTLIGHT ─── */
-    const ghost = document.querySelector('.hero-ghost');
-    const ghostLit = document.querySelector('.hero-ghost-lit');
-    const heroInner = document.querySelector('.hero-inner');
-    const spotlight = document.getElementById('spotlight');
-    const heroSec = document.getElementById('hero');
-
-    const RING_R = 360;   // metade dos 720px
-    const CLIP_R = 460;   // raio do núcleo brilhante para o clip-path
-    const DURATION = 30000;
-    let ghostParY = 0;        // parallax Y acumulado pelo scroll
-
-    addEventListener('scroll', () => {
-      if (scrollY < innerHeight * 1.2) {
-        ghostParY = scrollY * 0.28;
-        heroInner.style.transform = `translateY(${scrollY * 0.12}px)`;
-      }
-    }, { passive: true });
-
-    function tickSpotlight(ts) {
-      const t = (ts % DURATION) / DURATION;   // 0 → 1 linear, loop
-
-      const heroW = heroSec.offsetWidth;
-      const heroH = heroSec.offsetHeight;
-
-      /* Anel: esquerda → direita */
-      const cx = -RING_R + t * (heroW + RING_R * 2);
-      const cy = heroH * 0.46;
-      spotlight.style.transform = `translate(${cx - RING_R}px, ${cy - RING_R}px)`;
-
-      /* Texto: direita → esquerda (oposto ao anel) */
-      const maxDrift = heroW * 0.85;                    // drift sutil — letra quase estática
-      const textX = maxDrift - t * maxDrift * 2;    // +drift → 0 → -drift
-      const tY = `calc(-50% + ${ghostParY}px)`;
-      ghost.style.transform = `translateX(${textX}px) translateY(${tY})`;
-      ghostLit.style.transform = `translateX(${textX}px) translateY(${tY})`;
-
-      /* Clip-path: revela só onde o holofote está */
-      const heroRect = heroSec.getBoundingClientRect();
-      const litRect = ghostLit.getBoundingClientRect();
-      const relCX = (heroRect.left + cx) - litRect.left;
-      const relCY = (heroRect.top + cy) - litRect.top;
-      ghostLit.style.clipPath = `ellipse(${CLIP_R}px ${Math.round(CLIP_R * 0.65)}px at ${relCX}px ${relCY}px)`;
-
-      requestAnimationFrame(tickSpotlight);
-    }
-    requestAnimationFrame(tickSpotlight);
 
     /* ─── PROJECT CARD 3D HOVER ─── */
     document.querySelectorAll('.project').forEach(card => {
